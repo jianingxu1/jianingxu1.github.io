@@ -38,6 +38,7 @@ body {
 ul, ol {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 a, a:hover, a:focus {
@@ -359,7 +360,7 @@ footer {
         padding: 0 14%;
     }
 
-    .logo,
+    .logo-wrapper,
     .nav-toggle {
         margin: 1rem var(--med-padding);
     }
