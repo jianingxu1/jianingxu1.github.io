@@ -61,19 +61,38 @@ window.onload = async () => {
         window.location.href="resume.pdf";
     })
 
-    await getProjects();
+    // await getProjects();
     displayProjects();
 }
 
-var projectsData = [];
+var projectsData = [{
+    id: 1,
+    title: "Personal Website",
+    description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    url: "https://github.com/jianingxu1",
+    technologies: [
+      "HTML5",
+      "CSS",
+      "JavaScript"
+    ]
+  },
+  {
+    id: 2,
+    title: "Stock Price Predictor",
+    description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
+    url: "https://github.com/jianingxu1",
+    technologies: [
+      "Python"
+    ]
+  }];
 
-const getProjects = async () => {
-    try {
-        projectsData = (await axios.get("https://landing-page-json-server-production.up.railway.app/projects")).data;
-    } catch(error) {
-        console.log(error);
-    }
-}
+// const getProjects = async () => {
+//     try {
+//         projectsData = (await axios.get("https://landing-page-json-server-production.up.railway.app/projects")).data;
+//     } catch(error) {
+//         console.log(error);
+//     }
+// }
 
 const displayProjects = () => {
     projectsData.forEach((project) => {
