@@ -238,7 +238,7 @@ main li {    /* responsive */
 .about-portrait-wrapper {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 #about p {
@@ -517,10 +517,6 @@ footer {
     main p,
     main li {    /* responsive */
         font-size: 18px;
-    }
-    /* about me */
-   .about-portrait {
-        display: none;
     }
 }
 
