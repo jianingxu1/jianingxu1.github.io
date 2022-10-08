@@ -98,17 +98,20 @@ var projectsData = [{
 const displayProjects = () => {
     projectsData.forEach((project) => {
         $("#projects-wrapper").append(
-        `<a href="${project.url}" target="_blank" rel="noopener noreferrer">
+        `<a href="${project.url}" target="_blank" rel="noopener noreferrer" class="d-flex align-items-stretch">
             <div class="card" style="width: 18rem;">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column">
                     <div class="project-icons">
                         <div class="folder">
                             <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder"><title>Folder</title><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
                         </div>
                     </div>
-                    <h5 class="project-title">${project.title}</h5>
-                    <p class="project-description">${project.description}</p>
-                    <ul class="project-technologies" id="project${project.id}">
+                    <div class="d-flex flex-column justify-content-between h-100">
+                        <div>
+                            <h5 class="project-title">${project.title}</h5>
+                            <p class="project-description">${project.description}</p>
+                        </div>
+                        <ul class="project-technologies" id="project${project.id}">
                     </ul>
                 </div>
             </div>
