@@ -67,12 +67,13 @@ window.onload = async () => {
 
 var projectsData = [{
     id: 1,
-    title: "Personal Website",
-    description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-    url: "https://github.com/jianingxu1",
+    title: "jianingxu.me",
+    description: "Developed a fully responsive personal website from scratch using HTML, CSS (Bootstrap) and JavaScript.",
+    url: "https://github.com/jianingxu1/jianingxu.me",
     technologies: [
-      "HTML5",
+      "HTML",
       "CSS",
+      "Bootstrap",
       "JavaScript"
     ]
   },
