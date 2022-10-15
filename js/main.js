@@ -79,13 +79,25 @@ var projectsData = [{
   },
   {
     id: 2,
-    title: "Stock Price Predictor",
-    description: "Some quick example text to build on the card title and make up the bulk of the card's content.",
-    url: "https://github.com/jianingxu1",
+    title: "Tongyou Art Academy",
+    description: "Built a website for an Art Academy from scratch using HTML, CSS and JavaScript.",
+    url: "https://github.com/jianingxu1/tongyou-academy",
     technologies: [
-      "Python"
+      "HTML",
+      "CSS",
+      "JavaScript"
     ]
-  }];
+  },
+  {
+    id: 3,
+    title: "Tennis Circuit Manager",
+    description: "Created a program that manages a Tennis Circuit using C++.",
+    url: "https://github.com/jianingxu1/practicaPRO2",
+    technologies: [
+      "C++"
+    ]
+  }
+];
 
 // const getProjects = async () => {
 //     try {
