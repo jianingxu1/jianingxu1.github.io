@@ -10,7 +10,8 @@
     --light-slate: #a8b2d1;
     --lightest-slate: #ccd6f6;
     --white: #e6f1ff;
-    --green: #64ffda;
+    --green: rgb(100, 255, 218);
+    --light-green: rgb(100, 255, 218, .25);
     --max-padding: 3rem;
     --med-padding: 2rem;
 }
@@ -325,6 +326,88 @@ main li {    /* responsive */
     font-size: 16px;
 }
 
+/* experience */
+.hidden {
+    display: none;
+}
+
+#experience {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.tab {
+    width: 200px;
+    height: 30px;
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+
+
+    background: none;
+    border: none;
+    color: var(--light-slate);
+    transition: 0.2s ease-in-out;
+}
+
+.tab:active {
+    color: var(--green);
+    background-color: var(--light-green);
+}
+
+.tab[aria-selected="true"] {
+    color: var(--green);
+    border-right: 2px var(--green) solid;
+}
+
+.experience-content-container {
+    margin-top: -10px;
+    padding-left: 40px;
+}
+
+.experience-content p {
+    margin: 0;
+}
+
+.job-title,
+.job-company {
+    font-size: 28px;
+}
+
+.job-title {
+    color: var(--lightest-slate);
+}
+
+.job-company {
+    color: var(--green);
+}
+
+.job-duration {
+    font-size: 18px;
+}
+
+.job-description {
+	padding-top: 24px;
+	max-width: 650px;
+}
+
+.job-description li {
+	position: relative;
+	padding-left: 30px;
+	padding-bottom: 16px;
+	font-size: 18px;
+	color: var(--slate);
+}
+
+.job-description li::before {
+    content: "▹";
+    color: var(--green);
+    position: absolute;
+    left: 0;
+}
+
 /* footer */
 footer {
     padding-bottom: 16px;
@@ -523,6 +606,26 @@ footer {
     main p,
     main li {    /* responsive */
         font-size: 18px;
+    }
+
+    /* experience */
+    .experience-container {
+        flex-direction: column;
+        justify-content: stretch;
+        align-items: stretch;
+    }
+    
+    .experience-vertical-tab-container {
+        margin-bottom: 30px;
+        width: 100%;
+    }
+
+    .tab {
+        width: 100%;
+    }
+
+    .experience-content-container {
+        padding-top: 0;
     }
 }
 
