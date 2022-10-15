@@ -68,6 +68,8 @@ window.onload = async () => {
 var projectsData = [{
     id: 1,
     title: "jianingxu.me",
+    img: "./img/projects/jianingxu-me.png",
+    alt: "Preview of the project's website.",
     description: "Developed a fully responsive personal website from scratch using HTML, CSS (Bootstrap) and JavaScript.",
     url: "https://github.com/jianingxu1/jianingxu.me",
     technologies: [
@@ -79,7 +81,9 @@ var projectsData = [{
   },
   {
     id: 2,
-    title: "Tongyou Art Academy",
+    title: "TY Art Academy",
+    img: "./img/projects/tongyou-academy.png",
+    alt: "Preview of the project's website.",
     description: "Built a website for an Art Academy from scratch using HTML, CSS and JavaScript.",
     url: "https://github.com/jianingxu1/tongyou-academy",
     technologies: [
@@ -91,6 +95,8 @@ var projectsData = [{
   {
     id: 3,
     title: "Tennis Circuit Manager",
+    img: "./img/projects/tennis-circuit-manager.png",
+    alt: "The output of the tennis circuit manager program given a sample input.",
     description: "Created a program that manages a Tennis Circuit using C++.",
     url: "https://github.com/jianingxu1/practicaPRO2",
     technologies: [
@@ -114,9 +120,7 @@ const displayProjects = () => {
             <div class="card" style="width: 18rem;">
                 <div class="card-body d-flex flex-column">
                     <div class="project-icons">
-                        <div class="folder">
-                            <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder"><title>Folder</title><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-                        </div>
+                        <img src="${project.img}" alt="${project.alt}" style="width: 15rem; height: 150px">
                     </div>
                     <div class="d-flex flex-column justify-content-between h-100">
                         <div>
