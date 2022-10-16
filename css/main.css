@@ -60,12 +60,19 @@ header {
     transition: all 300ms ease-in-out;
 }
 
-.box-shadow {
-    box-shadow: 0 10px 30px -10px var(--navy-shadow);
+#nav-toggle {
+    position: fixed;
+    top: 5px;
+    right: -5px;
 }
 
-.hide {
-    top: -100%;
+header[aria-visible="false"],
+#nav-toggle[aria-visible="false"] {
+   top: -100%; 
+}
+
+.box-shadow {
+    box-shadow: 0 10px 30px -10px var(--navy-shadow);
 }
 
 .logo {
@@ -553,6 +560,10 @@ footer {
         left: 55%;
     }
     
+    .nav-toggle {
+        transition: all 250ms ease-in-out;
+    }
+
     .nav-toggle[aria-expanded="true"] .hamburger {
         background-color: transparent;
     }

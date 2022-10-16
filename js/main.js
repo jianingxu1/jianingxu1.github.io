@@ -44,12 +44,24 @@ window.onload = async () => {
         prevScroll = curScroll;
         if (toggled) prevDirection = curDirection;
     }
-    
+
     const toggleHeader = () => {
         toggled = true;
+        let nav_toggle = document.getElementById("nav-toggle");
+        let navtoggleIsExpanded = nav_toggle.getAttribute("aria-expanded");
         let header = document.getElementById("header");
-        if (curDirection === 2 && curScroll > threshold) header.classList.add("hide");
-        else if (curDirection === 1) header.classList.remove("hide");
+        if (curDirection === 2 && curScroll > threshold) {  // set header to not visible
+            header.setAttribute("aria-visible", false);
+            // if header not visible and aria-expanded == false -> nav-toggle not visible
+            // if header not visible and aria-expanded == true -> nav-toggle visible
+            if (navtoggleIsExpanded === "false") nav_toggle.setAttribute("aria-visible", false);
+            else nav_toggle.setAttribute("aria-visible", true);
+        }
+        else if (curDirection === 1) {  // set header to visible
+            header.setAttribute("aria-visible", true);
+            // if header visible -> nav-toggle visible
+            nav_toggle.setAttribute("aria-visible", true);
+        }
         else toggled = false;
         return toggled;
     }
