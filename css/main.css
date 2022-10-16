@@ -169,6 +169,8 @@ footer {
 main { /* responsive */
     padding: 0 22%;
     overflow: visible;
+    display: flex;
+    flex-direction: column;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -332,10 +334,8 @@ main li {    /* responsive */
 }
 
 #experience {
-    height: 40vh;
     display: flex;
     flex-direction: column;
-    margin-bottom: 50px;
 }
 
 .tab {
