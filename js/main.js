@@ -3,6 +3,7 @@ window.onload = async () => {
     const nav = document.getElementById("nav-bar");
     const navToggle = document.getElementById("nav-toggle");
     const main = document.getElementById("main");
+
     navToggle.addEventListener("click", () => {
         let visibility = nav.getAttribute("data-visible");
         /* if navbar is expanded */
@@ -17,11 +18,14 @@ window.onload = async () => {
         }
     })
 
-    /* if link from navbar is clicked */
+    /* if link from navbar is clicked, close navbar */
     $("#primary-navigation li a").click(() => {
         nav.setAttribute("data-visible", false);
         navToggle.setAttribute("aria-expanded", false);
         main.setAttribute("nav-visible", false);
+        let header = document.getElementById("header");
+        let headerIsVisible = header.getAttribute("aria-visible")
+        if (headerIsVisible === "false") navToggle.setAttribute("aria-visible", false);
     })
 
     /*  scroll */
@@ -47,20 +51,19 @@ window.onload = async () => {
 
     const toggleHeader = () => {
         toggled = true;
-        let nav_toggle = document.getElementById("nav-toggle");
-        let navtoggleIsExpanded = nav_toggle.getAttribute("aria-expanded");
+        let navtoggleIsExpanded = navToggle.getAttribute("aria-expanded");
         let header = document.getElementById("header");
         if (curDirection === 2 && curScroll > threshold) {  // set header to not visible
             header.setAttribute("aria-visible", false);
             // if header not visible and aria-expanded == false -> nav-toggle not visible
             // if header not visible and aria-expanded == true -> nav-toggle visible
-            if (navtoggleIsExpanded === "false") nav_toggle.setAttribute("aria-visible", false);
-            else nav_toggle.setAttribute("aria-visible", true);
+            if (navtoggleIsExpanded === "false") navToggle.setAttribute("aria-visible", false);
+            else navToggle.setAttribute("aria-visible", true);
         }
         else if (curDirection === 1) {  // set header to visible
             header.setAttribute("aria-visible", true);
             // if header visible -> nav-toggle visible
-            nav_toggle.setAttribute("aria-visible", true);
+            navToggle.setAttribute("aria-visible", true);
         }
         else toggled = false;
         return toggled;
