@@ -75,8 +75,7 @@ window.onload = async () => {
     document.getElementById("resume").addEventListener("click", () => {
         window.location.href="resume.pdf";
     })
-
-    // await getProjects();
+    
     displayProjects();
 }
 
@@ -119,14 +118,6 @@ var projectsData = [{
     ]
   }
 ];
-
-// const getProjects = async () => {
-//     try {
-//         projectsData = (await axios.get("https://landing-page-json-server-production.up.railway.app/projects")).data;
-//     } catch(error) {
-//         console.log(error);
-//     }
-// }
 
 const displayProjects = () => {
     projectsData.forEach((project) => {
