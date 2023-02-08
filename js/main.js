@@ -75,7 +75,7 @@ window.onload = async () => {
     document.getElementById("resume").addEventListener("click", () => {
         window.location.href="resume.pdf";
     })
-    
+
     displayProjects();
 }
 
@@ -119,27 +119,38 @@ var projectsData = [{
   }
 ];
 
-const displayProjects = () => {
-    projectsData.forEach((project) => {
-        $("#projects-wrapper").append(
-        `<a href="${project.url}" target="_blank" rel="noopener noreferrer" class="d-flex align-items-stretch">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body d-flex flex-column">
-                    <div class="project-icons">
-                        <img src="${project.img}" alt="${project.alt}" style="width: 15rem; height: 150px">
+const projectToCard = (project) => {
+    let techList = '';
+    for (const tech of project.technologies) {
+        techList += `<li>${tech}</li>`;
+    }
+    const card = 
+    `<a href="${project.url}" target="_blank" rel="noopener noreferrer" class="d-flex align-items-stretch">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body d-flex flex-column">
+                <div class="project-icons">
+                    <img src="${project.img}" alt="${project.alt}" style="width: 15rem; height: 150px">
+                </div>
+                <div class="d-flex flex-column justify-content-between h-100">
+                    <div>
+                        <h5 class="project-title">${project.title}</h5>
+                        <p class="project-description">${project.description}</p>
                     </div>
-                    <div class="d-flex flex-column justify-content-between h-100">
-                        <div>
-                            <h5 class="project-title">${project.title}</h5>
-                            <p class="project-description">${project.description}</p>
-                        </div>
-                        <ul class="project-technologies" id="project${project.id}">
+                    <ul class="project-technologies" id="project${project.id}">
+                        ${techList}
                     </ul>
                 </div>
             </div>
-        </a>`);
-        project.technologies.forEach(technology => {
-            $(`#project${project.id}`).append(`<li>${technology}</li>`)
-        });
-    })
+        </div>
+    </a>`;
+    return card;
+};
+
+const displayProjects = () => {
+    const wrapper = document.querySelector('#projects-wrapper');
+    let projectsHtml = '';
+    for (const project of projectsData) {
+        projectsHtml += projectToCard(project);
+    }
+    wrapper.innerHTML = projectsHtml;
 }
