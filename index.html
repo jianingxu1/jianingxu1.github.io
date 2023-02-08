@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="css/main.css">
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script src="./js/main.js"></script>
+        <script defer async src="./js/main.js"></script>
     </head>
     <body>
         <header id="header" aria-visible="true">
@@ -70,28 +70,14 @@
             </section>
             <section id="experience">
                 <h2 class="section-title">/ experience</h2>
-                <div class="experience-container d-flex justify-content-center align-items-center">
+                <div class="experience-container d-flex justify-content-left align-items-center">
                     <div class="experience-vertical-tab-container d-flex flex-column justify-content-start align-self-start">
                         <div class="experience-vertical-tab d-flex flex-column">
-                            <div class="experience-tab">
-                                <button id="tab-0" class="tab" type="button"  aria-selected="true">
-                                    <span>HUAWEI</span>
-                                </button>
+                            <div id="experience-tab" class="experience-tab">
                             </div>
                         </div>
                     </div>
-                    <div class="experience-content-container">
-                        <div class="experience-content">
-                            <p>
-                                <span class="job-title">Assistant and Interpreter at Mobile World Congress 2022 @</span>
-                                <span class="job-company">Huawei</span>
-                                <div class="job-duration">FEB 2022 - MAR 2022</div>
-                                <ul class="job-description">
-                                    <li>Attended and helped customers in various languages (English, Chinese, and Spanish).</li>
-                                    <li>Provided support to Huawei clients within the congress hall.</li>
-                                </ul>
-                            </p>
-                        </div>
+                    <div id="experience-content-container" class="experience-content-container">
                     </div>
                 </div>
             </section>

@@ -154,3 +154,87 @@ const displayProjects = () => {
     }
     wrapper.innerHTML = projectsHtml;
 }
+
+const experiences = [{
+    title: 'Event Assistant',
+    company: 'Huawei',
+    startDate: new Date(2022, 1),   // February 2022
+    endDate: new Date(2022, 2),     // March 2022
+    description:
+      ['Attended and helped customers in various languages (English,  Chinese, and Spanish).',
+      'Provided support to Huawei clients within the congress hall.'],
+    tools: []
+  }
+];
+
+const getMonthFromDate = date => {
+  return date.toLocaleString('default', { month: 'short'});
+};
+
+const getDuration = (startDate, endDate) => {
+  const startMonth = getMonthFromDate(startDate).toUpperCase();
+  const endMonth = getMonthFromDate(endDate).toUpperCase();
+  return `${startMonth} ${startDate.getFullYear()} - ${endMonth} ${endDate.getFullYear()}`;
+};
+
+const getTabContent = (experience, isDisplayed, i) => {
+  const tabContent = 
+`<button id="tab-${i}" class="tab" type="button" aria-selected=${isDisplayed}>
+  <span tab='${i}'>${experience.company.toUpperCase()}</span>
+</button>
+`;
+  return tabContent;
+};
+
+const getExperienceContent = (experience, isDisplayed, i) => {
+  let jobPoints = '';
+  for (const jobPoint of experience.description) {
+    jobPoints += `<li>${jobPoint}</li>`;
+  }
+  const experienceContent =
+`<div id="content-${i}" class="experience-content" aria-selected=${isDisplayed}>
+  <p>
+    <span class="job-title">${experience.title} @</span>
+    <span class="job-company">${experience.company}</span>
+    <div class="job-duration">${getDuration(experience.startDate, experience.endDate)}</div>
+    <ul class="job-description">${jobPoints}</ul>
+  </p>
+</div>
+`;
+  return experienceContent;
+};
+
+const displayExperience = () => {
+  let tabsContent = '';
+  let experienceContent = '';
+  for (const [i, experience] of experiences.entries()) {
+    let isDisplayed = 'false';
+    if (i === 0) isDisplayed = 'true';
+    tabsContent += getTabContent(experience, isDisplayed, i);
+    experienceContent += getExperienceContent(experience, isDisplayed, i);
+  }
+  document.querySelector('#experience-tab').innerHTML = tabsContent;
+  document.querySelector('#experience-content-container').innerHTML = experienceContent;
+};
+
+// Display tab when clicked
+const displayClickedTab = () => {
+  const tabs = document.querySelectorAll('.tab');
+  let selectedTab = 0;
+  for (const tab of tabs) {
+    tab.addEventListener('click', (e) => {
+      const clickedTab = Number(e.target.id[4]);
+      if (clickedTab !== selectedTab) {
+        // Remove selectedTab
+        document.querySelector(`#tab-${selectedTab}`).setAttribute('aria-selected', 'false');
+        document.querySelector(`#content-${selectedTab}`).setAttribute('aria-selected', 'false');
+        selectedTab = clickedTab;
+        document.querySelector(`#tab-${selectedTab}`).setAttribute('aria-selected', 'true');
+        document.querySelector(`#content-${selectedTab}`).setAttribute('aria-selected', 'true');
+      }
+    });
+  }
+}
+
+displayExperience();
+displayClickedTab();
