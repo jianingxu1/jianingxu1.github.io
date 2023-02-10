@@ -42,7 +42,7 @@ const experiences = [
       'Attended and helped customers in various languages (English, Chinese, and Spanish).',
       'Provided support to Huawei clients within the congress hall.',
     ],
-    skills: [],
+    skills: ['Communication', 'Customer service', 'Spoken Languages']
   }
 ];
 
@@ -190,6 +190,8 @@ const getDurationFromDates = (startDate, endDate) => {
 
 const getExperienceHtml = (experience, isDisplayed, i) => {
   const pointsHtml = experience.description.reduce(getHtmlList, '');
+  const skillsHtml = experience.skills.length === 0 ? '' :
+`<span class='job-skills'><span class='light-slate'>Skills:</span> ${experience.skills.join(' - ')}</span>`;
   const experienceHtml = `<div id='content-${i}' class='experience-content' aria-selected=${isDisplayed}>
   <p>
     <span class='job-title'>${experience.title} @</span>
@@ -199,6 +201,7 @@ const getExperienceHtml = (experience, isDisplayed, i) => {
     experience.endDate
   )}</div>
     <ul class='job-description'>${pointsHtml}</ul>
+    ${skillsHtml}
   </p>
 </div>
 `;

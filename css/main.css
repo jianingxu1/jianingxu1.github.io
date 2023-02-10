@@ -20,6 +20,10 @@
   color: var(--green);
 }
 
+.light-slate {
+  color: var(--light-slate);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -384,12 +388,8 @@ main li {
 .experience-content-container {
   margin-top: -10px;
   padding-left: 40px;
+  font-size: 18px;
 }
-
-/* .experience-container {
-    display: flex;
-    justify-content: left;
-} */
 
 .experience-content p {
   margin: 0;
@@ -412,12 +412,9 @@ main li {
   color: var(--green);
 }
 
-.job-duration {
-  font-size: 18px;
-}
-
 .job-description {
-  padding-top: 24px;
+  padding-top: 18px;
+  padding-bottom: 8px;
   max-width: 650px;
 }
 
@@ -426,7 +423,7 @@ main li {
   padding-left: 30px;
   padding-bottom: 16px;
   font-size: 18px;
-  color: var(--slate);
+  color: var(--lightest-slate);
 }
 
 .job-description li::before {
