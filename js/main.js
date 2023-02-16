@@ -46,13 +46,12 @@ const experiences = [
   }
 ];
 
-window.onload = async () => {
-  /* navbar */
-  const nav = document.querySelector('#nav-bar');
-  const navToggle = document.querySelector('#nav-toggle');
-  const main = document.querySelector('#main');
-  const header = document.querySelector('#header');
+const nav = document.querySelector('.nav-bar');
+const navToggle = document.querySelector('.nav-toggle');
+const main = document.querySelector('main');
+const header = document.querySelector('header');
 
+window.onload = async () => {
   navToggle.addEventListener('click', () => {
     const visibility = nav.getAttribute('data-visible');
     /* if navbar is expanded */
@@ -66,18 +65,6 @@ window.onload = async () => {
       main.setAttribute('nav-visible', false);
     }
   });
-
-  const closeNavbar = () => {
-    nav.setAttribute('data-visible', false);
-    navToggle.setAttribute('aria-expanded', false);
-    main.setAttribute('nav-visible', false);
-    const headerIsVisible = header.getAttribute('aria-visible');
-    if (headerIsVisible === 'false')
-      navToggle.setAttribute('aria-visible', false);
-  }
-
-  /* if link from navbar is clicked, close navbar */
-  document.querySelectorAll('.link').forEach(link => link.addEventListener('click', closeNavbar));
 
   /*  scroll */
   let previousScroll = window.scrollY || document.documentElement.scrollTop;
@@ -129,12 +116,32 @@ window.onload = async () => {
   };
 
   window.addEventListener('scroll', checkScroll);
-
-  /* resume */
-  document.querySelector('#resume').addEventListener('click', () => {
-    window.location.href = 'resume.pdf';
-  });
 };
+
+const closeNavBar = function() {
+  nav.setAttribute('data-visible', false);
+  navToggle.setAttribute('aria-expanded', false);
+  main.setAttribute('nav-visible', false);
+  const headerIsVisible = header.getAttribute('aria-visible');
+  if (headerIsVisible === 'false')
+    navToggle.setAttribute('aria-visible', false);
+};
+
+document.querySelector('.nav-bar').addEventListener('click', function(e) {
+  e.preventDefault(); // Disable links default scrolling with href
+  const clickedElementIsLink = e.target.classList.contains('nav-link');
+  if (clickedElementIsLink) {
+    if (e.target.classList.contains('resume')) {
+      window.location.href = e.target.href;
+      return;
+    }
+    const dest = e.target.getAttribute('href');
+    document.querySelector(dest).scrollIntoView({behavior: 'smooth'});
+
+    const navbarIsVisible = e.currentTarget.getAttribute('data-visible') === 'true';
+    if (navbarIsVisible) closeNavBar();
+  }
+});
 
 const getHtmlList = (acc, elem) => {
   return acc + `<li>${elem}</li>`;
