@@ -3,6 +3,16 @@
 const projects = [
   {
     id: 1,
+    title: 'AI Player',
+    img: './img/projects/eda-game.png',
+    alt: "Preview of a round's game.",
+    description:
+      'Developed an AI player for a game tournament held by the Data Structures and Algorithms class at UPC that got into the finals out of 242 players.',
+    url: 'https://github.com/jianingxu1/EDA-game',
+    technologies: ['C++'],
+  },
+  {
+    id: 2,
     title: 'jianingxu.me',
     img: './img/projects/jianingxu-me.png',
     alt: "Preview of the project's website.",
@@ -12,16 +22,6 @@ const projects = [
     technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
   },
   {
-    id: 2,
-    title: 'TY Art Academy',
-    img: './img/projects/tongyou-academy.png',
-    alt: "Preview of the project's website.",
-    description:
-      'Built a website for an Art Academy from scratch using HTML, CSS and JavaScript.',
-    url: 'https://github.com/jianingxu1/tongyou-academy',
-    technologies: ['HTML', 'CSS', 'JavaScript'],
-  },
-  {
     id: 3,
     title: 'Tennis Circuit Manager',
     img: './img/projects/tennis-circuit-manager.png',
@@ -29,7 +29,7 @@ const projects = [
     description: 'Created a program that manages a Tennis Circuit using C++.',
     url: 'https://github.com/jianingxu1/practicaPRO2',
     technologies: ['C++'],
-  },
+  }
 ];
 
 const experiences = [
@@ -51,72 +51,61 @@ const navToggle = document.querySelector('.nav-toggle');
 const main = document.querySelector('main');
 const header = document.querySelector('header');
 
-window.onload = async () => {
-  navToggle.addEventListener('click', () => {
-    const visibility = nav.getAttribute('data-visible');
-    /* if navbar is expanded */
-    if (visibility === 'false') {
-      nav.setAttribute('data-visible', true);
-      navToggle.setAttribute('aria-expanded', true);
-      main.setAttribute('nav-visible', true);
-    } else {
-      nav.setAttribute('data-visible', false);
-      navToggle.setAttribute('aria-expanded', false);
-      main.setAttribute('nav-visible', false);
-    }
-  });
+navToggle.addEventListener('click', () => {
+  // Toggle navbar visibility
+  const isVisible = nav.getAttribute('data-visible') === 'true';
+  nav.setAttribute('data-visible', !isVisible);
+  navToggle.setAttribute('aria-expanded', !isVisible);
+  main.setAttribute('nav-visible', !isVisible);
+});
 
-  /*  scroll */
-  let previousScroll = window.scrollY || document.documentElement.scrollTop;
-  let currentScroll = previousScroll;
-  let previousDirection = 0;
-  let currentDirection = previousDirection;
-  let toggled;
+/*  scroll */
+let previousScroll = window.scrollY || document.documentElement.scrollTop;
+let currentScroll = previousScroll;
+let previousDirection = 'up';
+let currentDirection = previousDirection;
+let toggled;
 
-  const checkScroll = () => {
-    currentScroll = window.scrollY || document.documentElement.scrollTop;
-    const shadowThreshold = 60;
-
-    const showShadowBox = currentScroll > shadowThreshold;
-    /* box shadow */
-    if (showShadowBox && !header.classList.contains('box-shadow'))
-      header.classList.add('box-shadow');
-    else if (!showShadowBox && header.classList.contains('box-shadow'))
-      header.classList.remove('box-shadow');
-
-    /* hide or show navbar */
-    const scrollDown = currentScroll > previousScroll;
-    if (scrollDown) currentDirection = 2;
-    else currentDirection = 1; // scrolls up
-
-    if (currentDirection !== previousDirection) toggled = toggleHeader();
-    previousScroll = currentScroll;
-    if (toggled) previousDirection = currentDirection;
-  };
-
-  const toggleHeader = () => {
+const checkScroll = function() {
+  const toggleHeader = function() {
     const threshold = 200;
     toggled = true;
-    const navtoggleIsExpanded = navToggle.getAttribute('aria-expanded');
-    if (currentDirection === 2 && currentScroll > threshold) {
-      // set header to not visible
-      header.setAttribute('aria-visible', false);
-      // if header not visible and aria-expanded == false -> nav-toggle not visible
-      // if header not visible and aria-expanded == true -> nav-toggle visible
-      if (navtoggleIsExpanded === 'false')
-        navToggle.setAttribute('aria-visible', false);
-      else navToggle.setAttribute('aria-visible', true);
-    } else if (currentDirection === 1) {
-      // set header to visible
+    if (currentDirection === 'down') {
+      if (currentScroll > threshold) {
+        header.setAttribute('aria-visible', false);
+        const navToggleIsExpanded = navToggle.getAttribute('aria-expanded') === 'false';
+        // if header not visible and aria-expanded == false -> nav-toggle not visible
+        // if header not visible and aria-expanded == true -> nav-toggle visible
+        if (navToggleIsExpanded) navToggle.setAttribute('aria-visible', false);
+        else navToggle.setAttribute('aria-visible', true);
+      }
+    } else if (currentDirection === 'up') {
       header.setAttribute('aria-visible', true);
       // if header visible -> nav-toggle visible
       navToggle.setAttribute('aria-visible', true);
     } else toggled = false;
     return toggled;
   };
+  
+  currentScroll = window.scrollY || document.documentElement.scrollTop;
+  const shadowThreshold = 60;
 
-  window.addEventListener('scroll', checkScroll);
+  const showShadowBox = currentScroll > shadowThreshold;
+  /* box shadow */
+  if (showShadowBox && !header.classList.contains('box-shadow'))
+    header.classList.add('box-shadow');
+  else if (!showShadowBox && header.classList.contains('box-shadow'))
+    header.classList.remove('box-shadow');
+
+  /* hide or show navbar */
+  const isScrollingDown = currentScroll > previousScroll;
+  currentDirection = isScrollingDown ? 'down' : 'up';
+  if (currentDirection !== previousDirection) toggled = toggleHeader();
+  previousScroll = currentScroll;
+  if (toggled) previousDirection = currentDirection;
 };
+
+window.addEventListener('scroll', checkScroll);
 
 const closeNavBar = function() {
   nav.setAttribute('data-visible', false);
