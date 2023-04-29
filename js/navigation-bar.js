@@ -6,10 +6,15 @@ export default class NavigationBar {
   nav = document.querySelector('.nav-bar');
   navToggle = document.querySelector('.nav-toggle');
 
+  previousScroll = window.scrollY || document.documentElement.scrollTop;
+  currentScroll;
+  previousDirection = 'up';
+  currentDirection;
+
   constructor() {
     this.navToggle.addEventListener('click', this._toggleNavigationBar.bind(this));
     this.nav.addEventListener('click', this._navigateTo.bind(this));
-    window.addEventListener('scroll', this._handleHeaderShadowBox.bind(this));
+    window.addEventListener('scroll', this._handleHeader.bind(this));
   };
 
   _navigateTo(e) {
@@ -64,12 +69,24 @@ export default class NavigationBar {
 
   _handleHeaderShadowBox() {
     const shadowThreshold = 60;
-    const currentScroll = window.scrollY || document.documentElement.scrollTop;
-    const showShadowBox = currentScroll > shadowThreshold;
+    const isShadowBoxVisible = this.currentScroll > shadowThreshold;
     
-    if (showShadowBox && !this.header.classList.contains('box-shadow'))
+    if (isShadowBoxVisible && !this.header.classList.contains('box-shadow'))
       this.header.classList.add('box-shadow');
-    else if (!showShadowBox && this.header.classList.contains('box-shadow'))
+    else if (!isShadowBoxVisible && this.header.classList.contains('box-shadow'))
       this.header.classList.remove('box-shadow');
+  };
+
+  _handleHeader() {    
+    this.currentScroll = window.scrollY || document.documentElement.scrollTop;
+    const isScrollingDown = this.currentScroll > this.previousScroll;
+    this.previousScroll = this.currentScroll;
+
+    this.currentDirection = isScrollingDown ? 'down' : 'up';
+    
+    this._handleHeaderShadowBox();
+    this._handleHeaderVisibility();
+
+    this.previousDirection = this.currentDirection;
   };
 };
