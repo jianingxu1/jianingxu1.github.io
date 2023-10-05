@@ -4,10 +4,11 @@
 [![GitHub repo size in bytes](https://img.shields.io/github/repo-size/jianingxu1/jianingxu.me)](https://github.com/jianingxu1/jianingxu.me)
 [![GitHub contributors](https://img.shields.io/github/contributors/jianingxu1/jianingxu.me.svg)](https://github.com/jianingxu1/jianingxu.me/graphs/contributors/)
 
-## jianingxu.me
-This is my **Personal Website** built with **HTML**, **CSS** (Bootstrap) and **JavaScript**.
+## Jianing Xu's site
+
+Welcome to my **Personal Website**!
+
+- Built with **HTML**, **CSS** and **JavaScript**.
+- I've put in the effort to ensure that it not only functions flawlessly but also delights the eye with its aesthetically pleasing design. Plus, it's fully responsive. So go ahead, explore, and enjoy!
 
 <img width="600" height="360" alt="Preview of the personal website." src="https://github.com/jianingxu1/jianingxu.me/blob/main/img/projects/jianingxu-me.png">
-
-- Implemented with a minimalist modern aesthetic with a completely **Responsive Design**.
-- Live on https://jianingxu.me!
