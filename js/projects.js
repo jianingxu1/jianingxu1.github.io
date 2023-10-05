@@ -8,36 +8,36 @@ export default class Projects {
       img: './img/projects/eda-game.png',
       alt: "Preview of a round's game.",
       description:
-        'Developed an AI player for a game tournament held by the Data Structures and Algorithms class at UPC that got into the finals out of 242 players.',
+        'Developed an AI player for "The Walking Dead" game tournament during the Data Structures and Algorithms class, advancing to the finals out of 242 participants.',
       url: 'https://github.com/jianingxu1/EDA-game',
       technologies: ['C++'],
     },
     {
       id: 2,
-      title: 'jianingxu.me',
+      title: 'jianingxu1.me',
       img: './img/projects/jianingxu-me.png',
       alt: "Preview of the project's website.",
-      description:
-        'Developed a fully responsive personal website from scratch using HTML, CSS (Bootstrap) and JavaScript.',
-      url: 'https://github.com/jianingxu1/jianingxu.me',
-      technologies: ['HTML', 'CSS', 'Bootstrap', 'JavaScript'],
+      description: 'Designed and built a visually captivating personal portfolio website.',
+      url: 'https://github.com/jianingxu1/jianingxu1.github.io',
+      technologies: ['HTML', 'CSS', 'JavaScript'],
     },
     {
       id: 3,
       title: 'Tennis Circuit Manager',
       img: './img/projects/tennis-circuit-manager.png',
       alt: 'The output of the tennis circuit manager program given a sample input.',
-      description: 'Created a program that manages a Tennis Circuit using C++.',
+      description:
+        'Created a program to handle the management of a tennis circuit, incorporating comprehensive functionality and efficient data handling.',
       url: 'https://github.com/jianingxu1/practicaPRO2',
       technologies: ['C++'],
-    }
+    },
   ];
 
   _getProjectsHtml(projects) {
-    const projectToHtmlCard = project => {
+    const projectToHtmlCard = (project) => {
       const getHtmlList = (acc, elem) => {
         return acc + `<li>${elem}</li>`;
-      }
+      };
       const techList = project.technologies.reduce(getHtmlList, '');
       const card = `<a href='${project.url}' target='_blank' rel='noopener noreferrer' class='d-flex align-items-stretch'>
             <div class='card' style='width: 18rem;'>
@@ -61,10 +61,10 @@ export default class Projects {
     };
 
     return projects.reduce((acc, project) => acc + projectToHtmlCard(project), '');
-  };
+  }
 
   render() {
     const projectsContainer = document.querySelector('#projects-container');
-    projectsContainer.insertAdjacentHTML("afterbegin", this._getProjectsHtml(this._projects));
-  };
+    projectsContainer.insertAdjacentHTML('afterbegin', this._getProjectsHtml(this._projects));
+  }
 }
