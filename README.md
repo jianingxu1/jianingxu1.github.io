@@ -1,14 +1,19 @@
-[![HitCount](https://hits.dwyl.com/jianingxu1/jianingxu.me.svg?style=flat&show=unique)](http://hits.dwyl.com/jianingxu1/jianingxu.me)
-[![GitHub stars](https://img.shields.io/github/stars/jianingxu1/jianingxu.me.svg)](https://github.com/jianingxu1/jianingxu.me/stargazers/)
-[![GitHub forks](https://img.shields.io/github/forks/jianingxu1/jianingxu.me.svg)](https://github.com/jianingxu1/jianingxu.me/network/)
-[![GitHub repo size in bytes](https://img.shields.io/github/repo-size/jianingxu1/jianingxu.me)](https://github.com/jianingxu1/jianingxu.me)
-[![GitHub contributors](https://img.shields.io/github/contributors/jianingxu1/jianingxu.me.svg)](https://github.com/jianingxu1/jianingxu.me/graphs/contributors/)
+<div align="center">
+  <img src="https://hits.dwyl.com/jianingxu1/jianingxu.me.svg?style=flat&show=unique" alt="HitCount">
+  <img src="https://img.shields.io/github/stars/jianingxu1/jianingxu.me.svg" alt="GitHub stars">
+  <img src="https://img.shields.io/github/forks/jianingxu1/jianingxu.me.svg" alt="GitHub forks">
+  <img src="https://img.shields.io/github/repo-size/jianingxu1/jianingxu.me" alt="GitHub repo size">
+  <img src="https://img.shields.io/github/contributors/jianingxu1/jianingxu.me.svg" alt="GitHub contributors">
+</div>
 
-## Jianing Xu's site
+# jianingxu1
 
 Welcome to my **Personal Website**!
 
-- Built with **HTML**, **CSS** and **JavaScript**.
-- I've put in the effort to ensure that it not only functions flawlessly but also delights the eye with its aesthetically pleasing design. Plus, it's fully responsive. So go ahead, explore, and enjoy!
+This site is crafted using **HTML**, **CSS**, and **JavaScript**.
 
-<img width="600" height="360" alt="Preview of the personal website." src="https://github.com/jianingxu1/jianingxu.me/blob/main/img/projects/jianingxu-me.png">
+I've dedicated considerable effort to ensuring that it not only functions flawlessly but also captivates the eye with its aesthetically pleasing design. Moreover, it's fully responsive. So, please, go ahead, explore, and enjoy!
+
+<div align="center">
+  <img width="600" height="360" alt="Preview of the personal website" src="https://github.com/jianingxu1/jianingxu.me/blob/main/img/projects/jianingxu-me.png">
+</div>
