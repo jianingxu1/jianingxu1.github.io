@@ -4,6 +4,16 @@ export default class Projects {
   _projects = [
     {
       id: 1,
+      title: 'LoL SquadScope',
+      img: './img/projects/lol-squadscope.png',
+      alt: "Preview of squadscope's website.",
+      description:
+        'Follow your favorite LoL eSports team! Keep track of your team\'s upcoming matches, recents matches and more.',
+      url: 'https://lol-squadscope-huiyuan.vercel.app',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'TailwindCSS', 'ReactJS', 'NextJS'],
+    },
+    {
+      id: 2,
       title: 'AI Player',
       img: './img/projects/eda-game.png',
       alt: "Preview of a round's game.",
@@ -13,7 +23,7 @@ export default class Projects {
       technologies: ['C++'],
     },
     {
-      id: 2,
+      id: 3,
       title: 'jianingxu1.me',
       img: './img/projects/jianingxu-me.png',
       alt: "Preview of the project's website.",
@@ -22,7 +32,7 @@ export default class Projects {
       technologies: ['HTML', 'CSS', 'JavaScript'],
     },
     {
-      id: 3,
+      id: 4,
       title: 'Tennis Circuit Manager',
       img: './img/projects/tennis-circuit-manager.png',
       alt: 'The output of the tennis circuit manager program given a sample input.',
