@@ -3,15 +3,25 @@
 export default class Experiences {
   _experiences = [
     {
-      title: 'Event Assistant',
-      company: 'Huawei',
-      startDate: new Date(2022, 1), // February 2022
-      endDate: new Date(2022, 2), // March 2022
+      title: 'Software Engineer Intern',
+      company: 'Uber',
+      startDate: new Date(2025, 1), // February 2025
+      endDate: new Date(2025, 7), // August 2025
       description: [
-        'Assisted and communicated with multi-lingual customers (English, Chinese, and Spanish).',
-        "Provided on-site support to the company's clients during the congress.",
+        'Automating the analysis of pull requests (100+ PRs everyday) and extracting actionable insights using Python, LLMs and agentic workflows.',
       ],
-      skills: ['Communication', 'Customer service', 'Spoken Languages'],
+      skills: ['Python', 'LLMs', 'Automation', 'Data Analysis'],
+    },
+    {
+      title: 'Software Engineer Intern',
+      company: 'Midokura (Sony)',
+      startDate: new Date(2024, 3), // April 2024
+      endDate: new Date(2024, 8), // September 2024
+      description: [
+        'Reduced backend token requests by 83% by implementing a reusable token system for Azure uploads.',
+        'Improved build times by 22% by creating a proxy and caching solution for Kubernetes Kind clusters.',
+      ],
+      skills: ['Java', 'Spring Boot', 'Docker', 'Kubernetes', 'Azure', 'AWS'],
     },
   ];
 
@@ -21,10 +31,8 @@ export default class Experiences {
       tab.addEventListener('click', (e) => {
         const currentTab = parseInt(e.target.id.match(/\d+/));
         if (currentTab !== previousTab) {
-          // Hide previous tab
           document.querySelector(`#tab-${previousTab}`).setAttribute('aria-selected', false);
           document.querySelector(`#content-${previousTab}`).setAttribute('aria-selected', false);
-          // Show current Tab
           document.querySelector(`#tab-${currentTab}`).setAttribute('aria-selected', true);
           document.querySelector(`#content-${currentTab}`).setAttribute('aria-selected', true);
           previousTab = currentTab;
