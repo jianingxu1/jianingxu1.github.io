@@ -5,7 +5,7 @@ export default class Projects {
     {
       id: 1,
       title: 'Orbio',
-      img: 'https://images.pexels.com/photos/8439094/pexels-photo-8439094.jpeg',
+      img: './img/projects/orbio.jpg',
       alt: 'A smartwatch displaying health data',
       description: 'Backend architecture for a platform supporting research studies on smartwatch-based digital biomarkers. Handles 1M+ data points per user daily.',
       url: 'https://github.com/ADAMMA-CDHI-ETH-Zurich/CLAIDDashboard',
@@ -14,7 +14,7 @@ export default class Projects {
     {
       id: 2,
       title: 'Hands-Free',
-      img: 'https://images.pexels.com/photos/7348711/pexels-photo-7348711.jpeg',
+      img: './img/projects/hands-free.jpg',
       alt: 'A warehouse worker using voice commands',
       description: 'Voice-controlled assistant for warehouse workers with 90%+ recognition accuracy. Won 1st Place at HackUPC 2024.',
       url: 'https://github.com/jianingxu1/hands-free-hackupc-2024',
